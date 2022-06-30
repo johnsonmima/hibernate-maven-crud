@@ -17,36 +17,39 @@ public class App {
         Session session = factory.getCurrentSession();
 
 
-        // create new user
-        //Users user = new Users("James", "James Now Jack");
 
-        //other operation
-        Users user = new Users();
+        try {
 
-        // begin transaction
-        session.beginTransaction();
-        // ------ SAVE
-        // persist
-        //session.persist(user);
-        // ----------- READ
-        //user = session.get(Users.class, 1);
-        //System.out.println(user.toString());
-        // -- update
+            // create new user
+            Users user = new Users("James", "James Now Jack");
+
+            //other operation
+            //Users user = new Users();
+
+            // begin transaction
+            session.beginTransaction();
+            // ------ SAVE
+            // persist
+            session.persist(user);
+            System.out.println(user);
+            // ----------- READ
+            //user = session.get(Users.class, 1);
+            //System.out.println(user.toString());
+            // -- update
 //        user = session.get(Users.class, 1);
 //        user.setFullName("James Micah");
 //        user.setUsername("james_micah");
 //        System.out.println(user.toString());
 
-        // -------------- delete
+            // -------------- delete
 //        user = session.get(Users.class, 2);
 //        session.remove(user);
 
 
-        // get transaction . commit
-        session.getTransaction().commit();
-        //
-        //System.out.println("new row added");
-        try {
+            // get transaction . commit
+            session.getTransaction().commit();
+            //
+            //System.out.println("new row added");
 
         } finally {
             factory.close();
